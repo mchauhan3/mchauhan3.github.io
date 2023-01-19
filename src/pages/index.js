@@ -8,11 +8,10 @@ const pageStyles = {
 }
 const headingStyles = {
   marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
+  marginBottom: 30
 }
 const headingAccentStyles = {
-  color: "#663399",
+  color: "#999999",
 }
 const paragraphStyles = {
   marginBottom: 48,
@@ -52,10 +51,6 @@ const links = [
     url: "https://soundcloud.com/mohit-chauhan-19"
   },
   {
-    text: "writing",
-    url: ""
-  },
-  {
     text: "linkedin",
     url: "https://www.linkedin.com/in/mohit-chauhan/"
   },
@@ -69,11 +64,13 @@ const links = [
 const IndexPage = () => {
   return (
     <main style={pageStyles}>
-      <title>Home Page</title>
+      <title>Mohit Chauhan's Personal Website</title>
       <h1 style={headingStyles}>
         Mohit Chauhan
-        <br />
-        Software Engineer at Alexa AI
+        <br/>
+        <div style={headingAccentStyles}>
+      Software Developer II, Amazon
+    </div>
       </h1>
       {links.map(link => (
           <span style={listItemStyles}>
