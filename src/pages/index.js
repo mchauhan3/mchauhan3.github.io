@@ -1,5 +1,5 @@
 import * as React from "react"
-
+import { Link } from "gatsby"
 // styles
 const pageStyles = {
   color: "#232129",
@@ -8,24 +8,10 @@ const pageStyles = {
 }
 const headingStyles = {
   marginTop: 0,
-  marginBottom: 30
+  marginBottom: 30,
 }
 const headingAccentStyles = {
   color: "#999999",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
 }
 const listItemStyles = {
   fontWeight: "300",
@@ -44,20 +30,20 @@ const linkStyle = {
 const links = [
   {
     text: "code",
-    url: "https://github.com/mchauhan3"
+    url: "https://github.com/mchauhan3",
   },
   {
     text: "music",
-    url: "https://soundcloud.com/mohit-chauhan-19"
+    url: "https://soundcloud.com/mohit-chauhan-19",
   },
   {
     text: "linkedin",
-    url: "https://www.linkedin.com/in/mohit-chauhan/"
+    url: "https://www.linkedin.com/in/mohit-chauhan/",
   },
   {
     text: "email",
-    url: "mailto:mhchauhan3@gmail.com"
-  }
+    url: "mailto:mhchauhan3@gmail.com",
+  },
 ]
 
 // markup
@@ -67,22 +53,23 @@ const IndexPage = () => {
       <title>Mohit Chauhan's Personal Website</title>
       <h1 style={headingStyles}>
         Mohit Chauhan
-        <br/>
-        <div style={headingAccentStyles}>
-      Software Developer II, Amazon
-    </div>
+        <br />
+        <div style={headingAccentStyles}>Software Developer II, Amazon</div>
       </h1>
       {links.map(link => (
-          <span style={listItemStyles}>
-            <a
-              style={linkStyle}
-              href={`${link.url}`}
-            >
-              {link.text}
-            </a>
-            <br></br>
-          </span>
+        <span style={listItemStyles}>
+          <a style={linkStyle} href={`${link.url}`}>
+            {link.text}
+          </a>
+          <br></br>
+        </span>
       ))}
+      <span style={listItemStyles}>
+        <Link style={linkStyle} to="/blog/">
+          blog
+        </Link>
+        <br></br>
+      </span>
     </main>
   )
 }
