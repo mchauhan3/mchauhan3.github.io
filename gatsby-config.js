@@ -9,16 +9,17 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Blog`,
+    title: `Mohit Chauhan`,
     author: {
       name: `Mohit Chauhan`,
       summary: `who lives and works in Vancouver, building (hopefully) useful things.`,
     },
     description: `My corner of the internet.`,
-    siteUrl: `https://mohitc.com/blog/`,
+    siteUrl: `https://mohitc.com/`,
     social: {
       github: `mchauhan3`,
     },
+    blogTitle: `Blog`
   },
   plugins: [
     `gatsby-plugin-image`,
