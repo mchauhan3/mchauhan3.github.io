@@ -9,7 +9,7 @@ const headingAccentStyles = {
   color: "#999999",
 }
 const listItemStyles = {
-  fontSize: "24px"
+  fontSize: "24px",
 }
 
 const linkStyle = {
@@ -43,11 +43,11 @@ const IndexPage = () => {
   return (
     <Layout>
       <header className="global-header">
-      <h1 className="main-heading">
-        Mohit Chauhan
-        <br />
-        <div style={headingAccentStyles}>Software Developer II, Amazon</div>
-      </h1>
+        <h1 className="main-heading">
+          Mohit Chauhan
+          <br />
+          <div style={headingAccentStyles}>Software Developer II, Amazon</div>
+        </h1>
       </header>
       {links.map(link => (
         <span style={listItemStyles}>

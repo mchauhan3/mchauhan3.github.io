@@ -1,7 +1,6 @@
 import * as React from "react"
 
 const Layout = ({ location, title, children }) => {
-
   return (
     <div className="global-wrapper">
       <main>{children}</main>

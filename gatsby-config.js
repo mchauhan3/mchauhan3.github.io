@@ -19,7 +19,7 @@ module.exports = {
     social: {
       github: `mchauhan3`,
     },
-    blogTitle: `Blog`
+    blogTitle: `Blog`,
   },
   plugins: [
     `gatsby-plugin-image`,
