@@ -55,7 +55,7 @@ value<span class="token punctuation">,</span> <span class="token boolean">_</spa
 <li><strong>Input</strong>: A developer calls <code class="language-text">insert(user_object)</code>.</li>
 <li><strong>Schema Retrieval</strong>: The wrapper's <code class="language-text">insert</code> method automatically identifies the model type (<code class="language-text">user</code>) and retrieves the correct schema from our in-memory cache. If it's not in the cache, it's fetched from the database and loaded.</li>
 <li><strong>Data Serialization</strong>: Using this schema as a guide, the wrapper's engine converts the <code class="language-text">user_object</code> into a compact binary format.</li>
-<li><strong>Storage</strong>: The highly efficient binary data is then written to SlateDB under the specified key.</li>
+<li><strong>Storage</strong>: The binary data is then written to SlateDB under the specified key.</li>
 </ol>
 <p><strong>Deserialization (Reading Data)</strong></p>
 <ol>
