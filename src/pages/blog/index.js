@@ -54,6 +54,9 @@ const BlogIndex = ({ data, location }) => {
           )
         })}
       </ol>
+      <div className="post-footer-nav">
+        <Link className="home-link" to="/">Home →</Link>
+      </div>
     </BlogLayout>
   )
 }

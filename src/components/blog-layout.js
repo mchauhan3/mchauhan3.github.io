@@ -13,14 +13,18 @@ const BlogLayout = ({ location, title, children }) => {
   } else {
     header = (
       <Link className="header-link-home" to="/blog">
-        {title}
+        ← Back
       </Link>
     )
   }
 
   return (
     <Layout location={location} title={title}>
-      <header className="global-header">{header}</header>
+      <header className="global-header">
+        <div className="blog-navigation">
+          {header}
+        </div>
+      </header>
       {children}
     </Layout>
   )
