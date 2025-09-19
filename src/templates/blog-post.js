@@ -30,7 +30,7 @@ const BlogPostTemplate = ({
         <footer>
           <Bio />
           <div className="post-footer-nav">
-            <Link className="home-link" to="/">Home →</Link>
+            <Link className="home-link" to="/">home</Link>
           </div>
         </footer>
       </article>

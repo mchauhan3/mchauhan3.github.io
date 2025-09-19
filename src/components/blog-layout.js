@@ -13,7 +13,7 @@ const BlogLayout = ({ location, title, children }) => {
   } else {
     header = (
       <Link className="header-link-home" to="/blog">
-        ← Back
+        back
       </Link>
     )
   }

@@ -46,7 +46,7 @@ const IndexPage = () => {
         <h1 className="main-heading">
           Mohit Chauhan
           <br />
-          <div style={headingAccentStyles}>Senior Software Engineer II, Confluent</div>
+          <div style={headingAccentStyles}>engineering @ confluent.io</div>
         </h1>
       </header>
       {links.map(link => (
