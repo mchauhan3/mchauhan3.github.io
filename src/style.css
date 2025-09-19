@@ -33,31 +33,39 @@
     "Noto Color Emoji";
   --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
     Times, serif;
+  --fontFamily-mono: "JetBrains Mono", "Fira Code", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
   --font-body: var(--fontFamily-serif);
   --font-heading: var(--fontFamily-sans);
+  --font-code: var(--fontFamily-mono);
   --fontWeight-normal: 400;
+  --fontWeight-medium: 500;
+  --fontWeight-semibold: 600;
   --fontWeight-bold: 700;
   --fontWeight-black: 900;
-  --fontSize-root: 16px;
+  --fontSize-root: 18px; /* Increased from 16px for better readability */
   --lineHeight-none: 1;
   --lineHeight-tight: 1.1;
   --lineHeight-normal: 1.5;
-  --lineHeight-relaxed: 1.625;
-  /* 1.200 Minor Third Type Scale */
-  --fontSize-0: 0.833rem;
-  --fontSize-1: 1rem;
-  --fontSize-2: 1.2rem;
-  --fontSize-3: 1.44rem;
-  --fontSize-4: 1.728rem;
-  --fontSize-5: 2.074rem;
-  --fontSize-6: 2.488rem;
-  --fontSize-7: 2.986rem;
+  --lineHeight-relaxed: 1.75; /* Increased from 1.625 for better readability */
+  --lineHeight-loose: 1.8;
+  /* Improved type scale with better proportions */
+  --fontSize-0: 0.75rem;   /* 12px */
+  --fontSize-1: 1rem;      /* 18px */
+  --fontSize-2: 1.125rem;  /* 20.25px */
+  --fontSize-3: 1.25rem;   /* 22.5px */
+  --fontSize-4: 1.5rem;    /* 27px */
+  --fontSize-5: 1.875rem;  /* 33.75px */
+  --fontSize-6: 2.25rem;   /* 40.5px */
+  --fontSize-7: 3rem;      /* 54px */
   --color-primary: #005b99;
-  --color-text: #2e353f;
-  --color-text-light: #4f5969;
+  --color-text: #2d3748; /* Slightly warmer text color */
+  --color-text-light: #4a5568; /* Better contrast */
   --color-heading: #1a202c;
-  --color-heading-black: black;
-  --color-accent: #d1dce5;
+  --color-heading-black: #000000;
+  --color-accent: #e2e8f0; /* Lighter accent for better contrast */
+  --color-code-bg: #f7fafc;
+  --color-code-border: #e2e8f0;
+  --color-code-text: #2d3748;
 }
 
 /* HTML elements */
@@ -73,12 +81,15 @@ html {
   font-size: var(--fontSize-root);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
   color: var(--color-text);
+  line-height: var(--lineHeight-relaxed);
+  font-weight: var(--fontWeight-normal);
 }
 
 footer {
@@ -89,9 +100,10 @@ hr {
   background: var(--color-accent);
   height: 1px;
   border: 0;
+  margin: var(--spacing-12) 0;
 }
 
-/* Heading */
+/* Heading improvements */
 
 h1,
 h2,
@@ -100,17 +112,10 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  margin-top: var(--spacing-12);
+  margin-top: var(--spacing-16);
   margin-bottom: var(--spacing-6);
   line-height: var(--lineHeight-tight);
   letter-spacing: -0.025em;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
   font-weight: var(--fontWeight-bold);
   color: var(--color-heading);
 }
@@ -119,26 +124,35 @@ h1 {
   font-weight: var(--fontWeight-black);
   font-size: var(--fontSize-6);
   color: var(--color-heading-black);
+  margin-top: var(--spacing-8);
 }
 
 h2 {
   font-size: var(--fontSize-5);
+  margin-top: var(--spacing-12);
 }
 
 h3 {
   font-size: var(--fontSize-4);
+  margin-top: var(--spacing-10);
 }
 
 h4 {
   font-size: var(--fontSize-3);
+  margin-top: var(--spacing-8);
 }
 
 h5 {
   font-size: var(--fontSize-2);
+  margin-top: var(--spacing-6);
 }
 
 h6 {
   font-size: var(--fontSize-1);
+  margin-top: var(--spacing-6);
+  font-weight: var(--fontWeight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 h1 > a {
@@ -155,34 +169,71 @@ h6 > a {
   color: inherit;
 }
 
-/* Prose */
+/* Prose improvements */
 
 p {
   line-height: var(--lineHeight-relaxed);
-  --baseline-multiplier: 0.179;
-  --x-height-multiplier: 0.35;
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0);
+  margin: var(--spacing-0) var(--spacing-0) var(--spacing-6) var(--spacing-0);
   padding: var(--spacing-0);
 }
 
+/* Code styling */
+code {
+  font-family: var(--font-code);
+  font-size: 0.875em;
+  background-color: var(--color-code-bg);
+  padding: 0.125em 0.25em;
+  border-radius: 0.25rem;
+  color: var(--color-code-text);
+  border: 1px solid var(--color-code-border);
+}
+
+pre {
+  font-family: var(--font-code);
+  font-size: var(--fontSize-0);
+  line-height: var(--lineHeight-normal);
+  background-color: var(--color-code-bg);
+  padding: var(--spacing-4);
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-code-border);
+  overflow-x: auto;
+  margin: var(--spacing-6) 0;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  border: none;
+  font-size: inherit;
+}
+
+/* Lists */
 ul,
 ol {
   margin-left: var(--spacing-0);
   margin-right: var(--spacing-0);
   padding: var(--spacing-0);
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-6);
   list-style-position: outside;
   list-style-image: none;
+  padding-left: var(--spacing-6);
+}
+
+/* Blog post list - override general list styling */
+.post-list {
+  margin-left: var(--spacing-0);
+  padding-left: var(--spacing-0);
 }
 
 ul li,
 ol li {
   padding-left: var(--spacing-0);
-  margin-bottom: calc(var(--spacing-8) / 2);
+  margin-bottom: var(--spacing-2);
+  line-height: var(--lineHeight-relaxed);
 }
 
 li > p {
-  margin-bottom: calc(var(--spacing-8) / 2);
+  margin-bottom: var(--spacing-2);
 }
 
 li *:last-child {
@@ -190,19 +241,21 @@ li *:last-child {
 }
 
 li > ul {
-  margin-left: var(--spacing-8);
-  margin-top: calc(var(--spacing-8) / 2);
+  margin-left: var(--spacing-6);
+  margin-top: var(--spacing-2);
 }
 
+/* Blockquotes */
 blockquote {
   color: var(--color-text-light);
   margin-left: calc(-1 * var(--spacing-6));
   margin-right: var(--spacing-8);
   padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6);
-  border-left: var(--spacing-1) solid var(--color-primary);
+  border-left: 3px solid var(--color-primary);
   font-size: var(--fontSize-2);
   font-style: italic;
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-6);
+  line-height: var(--lineHeight-relaxed);
 }
 
 blockquote > :last-child {
@@ -214,25 +267,39 @@ blockquote > ol {
   list-style-position: inside;
 }
 
+/* Tables */
 table {
   width: 100%;
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-6);
   border-collapse: collapse;
   border-spacing: 0.25rem;
+  font-size: var(--fontSize-0);
 }
 
 table thead tr th {
+  border-bottom: 2px solid var(--color-accent);
+  padding: var(--spacing-2) var(--spacing-3);
+  text-align: left;
+  font-weight: var(--fontWeight-semibold);
+}
+
+table tbody tr td {
+  padding: var(--spacing-2) var(--spacing-3);
   border-bottom: 1px solid var(--color-accent);
 }
 
-/* Link */
-
+/* Links */
 a {
   color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
 }
 
 a:hover,
 a:focus {
+  color: #003d73;
   text-decoration: none;
 }
 
@@ -327,5 +394,6 @@ a:focus {
   ul,
   ol {
     list-style-position: inside;
+    padding-left: var(--spacing-4);
   }
 }
