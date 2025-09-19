@@ -10,6 +10,8 @@ Over the past few weeks, I’ve been experimenting with [**slatedb**](https://sl
 
 **SlateDB** is an embedded storage engine that writes its data directly to object storage instead of local disk. This design gives it bottomless capacity, strong durability, and simple replication while still being lightweight and embeddable in your application.
 
+> Note: I’m simplifying quite a bit here. For a deeper dive, check out the [official docs](https://slatedb.io/docs/get-started/introduction/) and the [SlateDB GitHub repo](https://github.com/slatedb/slatedb).
+
 Here’s an example of typical usage:
 
 ```go
