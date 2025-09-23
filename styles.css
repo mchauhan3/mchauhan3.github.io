@@ -1,0 +1,177 @@
+:root {
+  color-scheme: light dark;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #0d1117;
+  color: #f0f6fc;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+}
+
+main.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header .tagline {
+  margin: 0.5rem 0 0;
+  color: #8b949e;
+}
+
+section {
+  padding: 1.75rem;
+  border-radius: 16px;
+  background: rgba(22, 27, 34, 0.8);
+  border: 1px solid rgba(240, 246, 252, 0.08);
+  box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.4);
+}
+
+section h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+section p {
+  margin-bottom: 0;
+  color: #c9d1d9;
+}
+
+.audio-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.claim-controls {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+button {
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  color: #0d1117;
+  background: #58a6ff;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px -16px rgba(88, 166, 255, 0.8);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+button.secondary {
+  background: rgba(240, 246, 252, 0.15);
+  color: #f0f6fc;
+}
+
+.hint {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #8b949e;
+}
+
+.error {
+  margin: 0;
+  color: #ff7b72;
+  font-size: 0.9rem;
+}
+
+.success {
+  margin: 0;
+  color: #3fb950;
+  font-size: 0.95rem;
+}
+
+.bar-list {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.bar-card {
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(13, 17, 23, 0.85);
+  border: 1px solid rgba(240, 246, 252, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bar-card.owned {
+  border-color: rgba(63, 185, 80, 0.8);
+  box-shadow: 0 0 0 2px rgba(63, 185, 80, 0.2);
+}
+
+.bar-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.25rem;
+}
+
+.bar-card p {
+  margin: 0;
+}
+
+.bar-card small {
+  color: #8b949e;
+}
+
+.history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.history li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.history time {
+  font-variant-numeric: tabular-nums;
+  color: #8b949e;
+}
+
+@media (max-width: 600px) {
+  main.app {
+    padding: 2rem 1rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+}

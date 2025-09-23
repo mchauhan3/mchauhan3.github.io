@@ -46,22 +46,28 @@ const IndexPage = () => {
         <h1 className="main-heading">
           Mohit Chauhan
           <br />
-          <div style={headingAccentStyles}>engineering @ confluent.io</div>
+          <div style={headingAccentStyles}>engineering @ confluent</div>
         </h1>
       </header>
       {links.map(link => (
-        <span style={listItemStyles}>
+        <span key={link.text} style={listItemStyles}>
           <a style={linkStyle} href={`${link.url}`}>
             {link.text}
           </a>
-          <br></br>
+          <br />
         </span>
       ))}
+      <span style={listItemStyles}>
+        <Link style={linkStyle} to="/projects/">
+          projects
+        </Link>
+        <br />
+      </span>
       <span style={listItemStyles}>
         <Link style={linkStyle} to="/blog/">
           blog
         </Link>
-        <br></br>
+        <br />
       </span>
     </Layout>
   )
