@@ -158,12 +158,12 @@
   "Vancouver, BC",
   "June 2024 - Present",
   [
-    - Own the #strong[Watch scalability roadmap] for Confluent's multi-cloud resource management platform, spanning storage, caching, APIs, and production operations.
+    - Lead #strong[Watch scalability] for Confluent's multi-cloud resource management platform across #strong[AWS, Azure, and GCP], spanning storage, caching, APIs, and production operations.
     - Architected and shipped a pod-local caching system using #strong[SQLite] and #strong[Kafka CDC], reducing #strong[p99 Watch API latency] by about #strong[80 percent]#text[;] evaluated SlateDB as an alternative and contributed open-source Go bindings.
-    - Built a #strong[multi-region replication layer] enabling hub-and-spoke aggregation and distribution of global resources, with in-region access characteristics and stronger disaster recovery.
+    - Built a #strong[multi-region replication layer] for global and regional resources, enabling in-region access characteristics and stronger disaster recovery.
     - Redesigned List and Watch behavior on Azure Cosmos DB, improving latency by #strong[15x], reducing consumed capacity by #strong[8x], and driving more than #strong[\$400,000] in annual savings.
-    - Decoupled a core platform component into an independent #strong[gRPC service], enabling autonomous deployment, scaling, and clearer ownership boundaries.
-    - Built production observability including #strong[dashboards, alerts, and runbooks], and supported incident response as part of the on-call rotation.
+    - Decoupled a core platform component into an independent #strong[gRPC service], enabling independent deployment, scaling, and clearer ownership boundaries.
+    - Established production observability through #strong[dashboards, alerts, and runbooks], and supported incident response as part of the on-call rotation.
   ],
 )
 
@@ -174,11 +174,10 @@
   "Vancouver, BC",
   "September 2022 - June 2024",
   [
-    - Developed and operated multiple microservices in Amazon Retail accounting and tax workflows, handling loads up to #strong[2,000 TPS].
+    - Built and operated microservices in Amazon Retail accounting and tax workflows, serving up to #strong[2,000 TPS].
     - Eliminated #strong[\$503MM] in accounting errors by designing a generic seller-classification fix and deploying it globally across services and regions.
     - Led extraction of a key component from another team's service into a standalone service, cutting development delays by roughly #strong[80 percent] while removing significant tech debt.
-    - Built an asynchronous verification path to validate new services before migration without affecting existing production performance.
-    - Developed a chatbot MVP with Amazon Lex that reduced turnaround from one to two weeks down to one day for half of customer-associate inquiries.
+    - Built an asynchronous verification path to validate new services pre-migration without impacting production performance.
   ],
 )
 
@@ -190,7 +189,7 @@
   "May 2020 - September 2022",
   [
     - Developed and operated a highly available, low-latency service in the Alexa request path, serving up to #strong[13,000 TPS] and routing requests to partner services.
-    - Expanded rule-engine expressivity without degrading performance, giving partner teams more precise traffic-filtering controls and improving routing accuracy.
+    - Expanded the rule engine's expressivity without degrading performance, giving partner teams finer-grained traffic controls and improving routing accuracy.
     - Designed and developed instrumentation to verify correctness and measure performance during migration to a new ReactiveX-based architecture.
   ],
 )
