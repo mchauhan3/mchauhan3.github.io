@@ -4,7 +4,7 @@
   margin: (x: 0.48in, y: 0.42in),
 )
 
-#let body-font = "Liberation Sans"
+#let body-font = "Noto Sans"
 #let ui-font = "Fira Sans"
 #let accent = rgb("#0f4c81")
 #let accent-soft = rgb("#2b6a9a")
