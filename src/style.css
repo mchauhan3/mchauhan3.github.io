@@ -471,6 +471,15 @@ a:focus {
   margin: 0;
 }
 
+.project-status {
+  display: block;
+  color: var(--color-text-light);
+  font-size: var(--fontSize-0);
+  font-weight: var(--fontWeight-medium);
+  letter-spacing: 0.02em;
+  margin-top: var(--spacing-2);
+}
+
 .project-list-item h2 a {
   text-decoration-color: transparent;
   text-underline-offset: 0.25em;
@@ -485,6 +494,13 @@ a:focus {
 
 .project-list-item p {
   margin-bottom: var(--spacing-3);
+}
+
+.project-invite {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--fontSize-0);
+  margin-top: var(--spacing-3);
 }
 
 .project-link {
