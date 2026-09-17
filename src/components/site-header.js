@@ -20,6 +20,7 @@ const SiteHeader = ({ current }) => {
         >
           blog
         </Link>
+        <a href="/resume.pdf">resume</a>
       </nav>
     </header>
   )

@@ -15,6 +15,10 @@ const links = [
     internal: true,
   },
   {
+    text: "resume",
+    url: "/resume.pdf",
+  },
+  {
     text: "code",
     url: "https://github.com/mchauhan3",
   },

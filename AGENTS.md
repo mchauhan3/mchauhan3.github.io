@@ -27,8 +27,8 @@ Use the npm version represented by `package-lock.json` and install dependencies 
 - `npm run serve`: Serve the production build locally.
 - `npm run clean`: Clear Gatsby's generated cache and build artifacts.
 - `npm run format`: Format supported JavaScript, TypeScript, JSON, and Markdown files with Prettier.
-- `npm run resume:build`: Compile `resume/resume.typ` into `resume/out/Resume Single Column.pdf`.
-- `npm run resume:publish`: Build the resume and copy it to `static/Resume Single Column.pdf`.
+- `npm run resume:build`: Compile `resume/resume.typ` into a dated `resume/out/Resume_MohitChauhan_YYYY-MM-DD.pdf`.
+- `npm run resume:publish`: Build the resume, copy the dated PDF into `static/`, and refresh the stable `static/resume.pdf` alias used by the site.
 - `npm run deploy`: Build and publish `public/` to the `master` branch with `gh-pages`. Run this only when explicitly asked to deploy.
 
 There are currently no automated test or lint scripts. Use `npm run build` as the primary validation because it checks Gatsby compilation, GraphQL queries, and static page generation.
@@ -59,7 +59,7 @@ Gatsby derives the slug from the directory name and publishes the post at `/blog
 
 ## Resume workflow
 
-Edit `resume/resume.typ`, not either generated PDF. After resume changes, run `npm run resume:publish` so both `resume/out/Resume Single Column.pdf` and the public copy in `static/Resume Single Column.pdf` stay synchronized. Commit both generated PDFs when the resume source changes.
+Edit `resume/resume.typ`, not the generated PDFs. After resume changes, run `npm run resume:publish` so the dated PDF in `resume/out/`, its public dated copy, and `static/resume.pdf` stay synchronized. Commit all generated PDF copies when the resume source changes.
 
 ## Validation checklist
 
