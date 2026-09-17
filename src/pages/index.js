@@ -42,6 +42,11 @@ const IndexPage = () => {
       <header className="global-header home-header">
         <h1 className="main-heading">Mohit Chauhan</h1>
         <p className="home-role">engineering @ p-1.ai</p>
+        <p className="home-intro">
+          I’m a software engineer based in Vancouver, interested in Go,
+          databases, and distributed systems, with a focus on making the hard
+          parts feel simple.
+        </p>
       </header>
       <nav className="home-nav" aria-label="Primary navigation">
         {links.map(link =>
