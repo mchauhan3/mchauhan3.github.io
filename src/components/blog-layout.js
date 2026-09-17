@@ -1,30 +1,11 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import Layout from "./layout"
+import SiteHeader from "./site-header"
 
-const BlogLayout = ({ location, title, children }) => {
-  const blogPath = `${__PATH_PREFIX__}/blog/`
-  const isBlogPath = location.pathname === blogPath
-
-  let header
-
-  if (isBlogPath) {
-    header = <h1 className="main-heading">{title}</h1>
-  } else {
-    header = (
-      <Link className="header-link-home" to="/blog">
-        back
-      </Link>
-    )
-  }
-
+const BlogLayout = ({ children }) => {
   return (
-    <Layout location={location} title={title}>
-      <header className="global-header">
-        <div className="blog-navigation">
-          {header}
-        </div>
-      </header>
+    <Layout>
+      <SiteHeader current="blog" />
       {children}
     </Layout>
   )

@@ -53,7 +53,7 @@ You probably guessed it. We will need schemas! A schema is a description of the 
 - [**Protocol Buffers (Protobuf)**](https://protobuf.dev/): This is an excellent choice for a high-performance database wrapper. Its binary format is highly compact and fast, and it provides compile-time type safety through code generation from `.proto` schema files.
 - [**JSON**](https://www.json.org/json-en.html): The most human-readable format, which is great for debugging. However, it's text-based and verbose, leading to larger data sizes and slower performance compared to binary formats like Protobuf and Avro.
 
-We will stick with either Avro or Protobuf for our implementation.
+For this design, either Avro or Protobuf would be a good fit.
 
 ### **Storing Schemas in SlateDB**
 
@@ -115,14 +115,10 @@ Reading data from a secondary index involves two steps:
 
 For read-heavy workloads, a [**covering index**](https://en.wikipedia.org/wiki/Database_index#Covering_index) could be used, where the full serialized record is stored in the secondary index value. This eliminates the second lookup but increases storage costs and write complexity. The composite key with a placeholder is a more balanced choice for a general-purpose wrapper.
 
-## Conclusion and Next Steps
+## Conclusion
 
 We’ve walked through the foundations of an ORM layer on top of SlateDB: defining and storing schemas, choosing efficient serialization formats, and designing secondary indexes for richer queries. Together, these pieces outline a path toward making SlateDB more ergonomic for everyday application development, moving beyond raw byte arrays to structured, queryable objects.
 
-The next step is the fun part: **implementing the library**. That means writing the wrapper, testing schema storage and retrieval, validating serialization choices, and stress-testing secondary index behavior under concurrent workloads.
-
 SlateDB’s object-storage-first design already gives it durability and scalability. Adding an ORM layer on top opens the door to treating it as a lightweight persistence layer that feels natural to use in Go applications.
-
-I’ll be sharing updates as the implementation takes shape—stay tuned!
 
 This is also my first blog post, so if you made it this far — thanks for reading, I’m looking forward to writing more!

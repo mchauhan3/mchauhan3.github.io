@@ -1,7 +1,7 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import SiteHeader from "../components/site-header"
 
 const projects = [
   {
@@ -18,41 +18,30 @@ const projects = [
   },
 ]
 
-const cardStyle = {
-  border: "1px solid #e2e8f0",
-  borderRadius: "12px",
-  padding: "1.5rem",
-  marginBottom: "1.5rem",
-  backgroundColor: "#ffffff",
-  boxShadow: "0 12px 25px rgba(15, 23, 42, 0.05)",
-}
-
 const ProjectsPage = () => {
   return (
     <Layout>
-      <header className="global-header">
+      <SiteHeader current="projects" />
+      <header className="page-intro">
         <h1 className="main-heading">Projects</h1>
         <p>
           A living list of things I am building and maintaining. Reach out if
           you want a deeper dive or have feedback.
         </p>
       </header>
-      <section>
+      <section className="project-list" aria-label="Projects">
         {projects.map(project => (
-          <article key={project.name} style={cardStyle}>
-            <h2>{project.name}</h2>
+          <article className="project-list-item" key={project.name}>
+            <h2>
+              <a href={project.launchUrl}>{project.name}</a>
+            </h2>
             <p>{project.description}</p>
-            <p>
-              <a href={project.launchUrl}>Launch</a>
-            </p>
+            <a className="project-link" href={project.launchUrl}>
+              view project <span aria-hidden="true">↗</span>
+            </a>
           </article>
         ))}
       </section>
-      <div className="post-footer-nav">
-        <Link className="home-link" to="/">
-          home
-        </Link>
-      </div>
     </Layout>
   )
 }

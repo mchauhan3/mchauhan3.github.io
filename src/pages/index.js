@@ -3,23 +3,17 @@ import { Link } from "gatsby"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 
-// styles
-
-const headingAccentStyles = {
-  color: "#999999",
-}
-const listItemStyles = {
-  fontSize: "24px",
-}
-
-const linkStyle = {
-  color: "#000000",
-  fontWeight: "bold",
-  fontSize: "16px",
-}
-
-// data
 const links = [
+  {
+    text: "projects",
+    url: "/projects/",
+    internal: true,
+  },
+  {
+    text: "blog",
+    url: "/blog/",
+    internal: true,
+  },
   {
     text: "code",
     url: "https://github.com/mchauhan3",
@@ -38,37 +32,26 @@ const links = [
   },
 ]
 
-// markup
 const IndexPage = () => {
   return (
     <Layout>
-      <header className="global-header">
-        <h1 className="main-heading">
-          Mohit Chauhan
-          <br />
-          <div style={headingAccentStyles}>engineering @ confluent</div>
-        </h1>
+      <header className="global-header home-header">
+        <h1 className="main-heading">Mohit Chauhan</h1>
+        <p className="home-role">engineering @ p-1.ai</p>
       </header>
-      {links.map(link => (
-        <span key={link.text} style={listItemStyles}>
-          <a style={linkStyle} href={`${link.url}`}>
-            {link.text}
-          </a>
-          <br />
-        </span>
-      ))}
-      <span style={listItemStyles}>
-        <Link style={linkStyle} to="/projects/">
-          projects
-        </Link>
-        <br />
-      </span>
-      <span style={listItemStyles}>
-        <Link style={linkStyle} to="/blog/">
-          blog
-        </Link>
-        <br />
-      </span>
+      <nav className="home-nav" aria-label="Primary navigation">
+        {links.map(link =>
+          link.internal ? (
+            <Link key={link.text} to={link.url}>
+              {link.text}
+            </Link>
+          ) : (
+            <a key={link.text} href={link.url}>
+              {link.text}
+            </a>
+          ),
+        )}
+      </nav>
     </Layout>
   )
 }

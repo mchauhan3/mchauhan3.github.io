@@ -1,16 +1,7 @@
 import * as React from "react"
 
-const Layout = ({ location, title, children }) => {
-  return (
-    <div className="global-wrapper">
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
-      </footer>
-    </div>
-  )
+const Layout = ({ children }) => {
+  return <main className="global-wrapper">{children}</main>
 }
 
 export default Layout
