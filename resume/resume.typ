@@ -13,10 +13,10 @@
 
 #set text(
   font: body-font,
-  size: 8.55pt,
+  size: 8.3pt,
   lang: "en",
 )
-#set par(justify: false, leading: 0.34em)
+#set par(justify: false, leading: 0.3em)
 
 #let divider() = line(length: 100%, stroke: 0.6pt + rule)
 
@@ -152,13 +152,26 @@
 #section[Work Experience]
 
 #entry(
+  "Member of Technical Staff",
+  "P-1 AI",
+  "Platform Engineering",
+  "Vancouver, BC",
+  "May 2026 - Present",
+  [
+    - Built P-1's #strong[bring-your-own-cloud Kubernetes platform from scratch], reaching customer production in #strong[three months]. Developed the Go/Kubebuilder operator and composable Helm system that deploys the full product from a single declarative specification.
+    - Enabled enterprises to run P-1 entirely within their own VPC and compliance boundary, including #strong[air-gapped environments], while keeping internal and customer installations on one deployment path.
+    - Owned production deployment and release operations across P-1's customer fleet. Built #strong[GitOps reconciliation, pinned release promotion, and centralized observability] to prevent drift and diagnose failures without direct cluster access.
+  ],
+)
+
+#entry(
   "Senior Software Engineer II",
   "Confluent",
   "Control Plane - Metadata Storage",
   "Vancouver, BC",
-  "June 2024 - Present",
+  "June 2024 - May 2026",
   [
-    - Lead #strong[Watch scalability] for Confluent's multi-cloud resource management platform across #strong[AWS, Azure, and GCP], spanning storage, caching, APIs, and production operations.
+    - Led #strong[Watch (CDC) scalability] for Confluent's multi-cloud resource management platform across #strong[AWS, Azure, and GCP], spanning storage, caching, APIs, and production operations.
     - Architected and shipped a pod-local caching system using #strong[SQLite] and #strong[Kafka CDC], reducing #strong[p99 Watch API latency] by about #strong[80 percent]#text[;] evaluated SlateDB as an alternative and contributed open-source Go bindings.
     - Built a #strong[multi-region replication layer] for global and regional resources, enabling in-region access characteristics and stronger disaster recovery.
     - Redesigned List and Watch behavior on Azure Cosmos DB, improving latency by #strong[15x], reducing consumed capacity by #strong[8x], and driving more than #strong[\$400,000] in annual savings.
@@ -209,26 +222,14 @@
 )
 
 #grouped-entry(
-  "Internships",
+  "Internships, Teaching and Research",
   "",
   "Atlanta, GA",
-  "",
+  "2016 - 2018",
   [
     #set list(marker: [•], indent: 1.02em, body-indent: 0.38em, spacing: 0.08em)
-    - #strong[IBM Security], #strong[Software Developer Intern] (Summer 2017): Built a real-time visualization application for IBM QRadar SIEM and a VR communication tool that won IBM's national intern hackathon.
-    - #strong[Elavon, US Bank], #strong[Software Developer Intern] (Summer 2018): Administered organization-wide DevOps tooling and improved test coverage for the external-facing Commerce SDK.
-  ],
-)
-
-#grouped-entry(
-  "Teaching and Research",
-  "Georgia Tech",
-  "Atlanta, GA",
-  "",
-  [
-    #set list(marker: [•], indent: 1.02em, body-indent: 0.38em, spacing: 0.08em)
-    - #strong[Teaching Assistant], Objects and Design (2017 - 2018): Taught object-oriented programming and software engineering practices, and mentored teams through semester-long Android application projects.
-    - #strong[Research Assistant], HCI (2016 - 2017): Developed a Chrome extension and Android app to test a novel password-management strategy and created instructional material for its rollout.
+    - #strong[IBM Security], Software Developer Intern: Built a QRadar SIEM visualization app and an award-winning VR communication tool. #strong[Elavon, US Bank], Software Developer Intern: Supported organization-wide DevOps tooling and improved Commerce SDK test coverage.
+    - #strong[Georgia Tech], Teaching and Research Assistant: Taught object-oriented design, mentored Android project teams, and built web and Android tools for HCI password-management research.
   ],
 )
 
@@ -247,9 +248,9 @@
 
 #skill-line(
   "Languages",
-  [Go, Java, Python, Kotlin, JavaScript, SQL, Shell],
+  [Go, Java, Python, SQL, Shell],
 )
 #skill-line(
   "Cloud / Infra",
-  [AWS, Azure, GCP, Terraform, Kafka, Docker, Kubernetes, Git],
+  [AWS, Azure, GCP, Terraform, Kafka, Docker, Kubernetes],
 )
