@@ -6,11 +6,11 @@ import SiteHeader from "../components/site-header"
 const projects = [
   {
     name: "qLog",
-    status: "work in progress",
+    featured: true,
     description:
       "A local-first iOS reading queue for saving articles, reflecting with on-device quizzes and takeaways, and keeping notes.",
     launchUrl: "https://qlog.mohitc.com",
-    testFlightInvite: true,
+    inviteUrl: "mailto:mhchauhan3@gmail.com?subject=qLog%20TestFlight%20invite",
   },
   {
     name: "VibeCheck",
@@ -27,41 +27,57 @@ const projects = [
 ]
 
 const ProjectsPage = () => {
+  const featuredProject = projects.find(project => project.featured)
+  const otherProjects = projects.filter(project => !project.featured)
+
   return (
     <Layout>
       <SiteHeader current="projects" />
       <header className="page-intro">
         <h1 className="main-heading">Projects</h1>
         <p>
-          A living list of things I am building and maintaining. Reach out if
-          you want a deeper dive or have feedback.
+          Selected work, experiments, and tools. Reach out if you want a deeper
+          dive or have feedback.
         </p>
       </header>
-      <section className="project-list" aria-label="Projects">
-        {projects.map(project => (
-          <article className="project-list-item" key={project.name}>
-            <h2>
-              <a href={project.launchUrl}>{project.name}</a>
-              {project.status && (
-                <span className="project-status">{project.status}</span>
-              )}
+      <section
+        className="featured-project"
+        aria-labelledby="featured-project-title"
+      >
+        <div className="featured-project-heading">
+          <div>
+            <p className="eyebrow">Currently building</p>
+            <h2 id="featured-project-title">
+              <a href={featuredProject.launchUrl}>{featuredProject.name}</a>
             </h2>
-            <p>
-              {project.description}
-              {project.testFlightInvite && (
-                <span className="project-invite">
-                  <a href="mailto:mhchauhan3@gmail.com?subject=qLog%20TestFlight%20invite">
-                    Hit me up
-                  </a>{" "}
-                  for a TestFlight invite!
-                </span>
-              )}
-            </p>
-            <a className="project-link" href={project.launchUrl}>
-              view project <span aria-hidden="true">↗</span>
-            </a>
-          </article>
-        ))}
+          </div>
+        </div>
+        <p>{featuredProject.description}</p>
+        <div className="project-actions">
+          <a href={featuredProject.launchUrl}>
+            view project <span aria-hidden="true">↗</span>
+          </a>
+          <a href={featuredProject.inviteUrl}>request a TestFlight invite →</a>
+        </div>
+      </section>
+
+      <section className="project-archive" aria-labelledby="other-work-title">
+        <h2 className="section-label" id="other-work-title">
+          Other work
+        </h2>
+        <div className="project-list">
+          {otherProjects.map(project => (
+            <article className="project-list-item" key={project.name}>
+              <h2>
+                <a href={project.launchUrl}>{project.name}</a>
+              </h2>
+              <p>{project.description}</p>
+              <a className="project-link" href={project.launchUrl}>
+                view project <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+          ))}
+        </div>
       </section>
     </Layout>
   )
