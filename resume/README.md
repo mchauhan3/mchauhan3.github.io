@@ -2,6 +2,10 @@
 
 The resume source of truth lives in `resume/resume.typ`.
 
+The Fira Sans and Noto Sans files in `resume/fonts/` are part of the build so
+the resume renders consistently across machines. Their licenses are included
+alongside the font files.
+
 Build commands:
 
 - `npm run resume:build` compiles a dated PDF to `resume/out/Resume_MohitChauhan_YYYY-MM-DD.pdf`

@@ -16,6 +16,7 @@ This repository contains Mohit Chauhan's personal website, built with Gatsby 5 a
 - `gatsby-node.js`: Blog slug generation and page creation.
 - `static/`: Files copied directly into the generated site.
 - `resume/resume.typ`: Source of truth for the resume.
+- `resume/fonts/`: Vendored Fira Sans and Noto Sans files used for reproducible resume typography.
 - `resume/out/`: Generated resume output.
 
 ## Setup and commands
@@ -59,7 +60,7 @@ Gatsby derives the slug from the directory name and publishes the post at `/blog
 
 ## Resume workflow
 
-Edit `resume/resume.typ`, not the generated PDFs. After resume changes, run `npm run resume:publish` so the dated PDF in `resume/out/`, its public dated copy, and `static/resume.pdf` stay synchronized. Commit all generated PDF copies when the resume source changes.
+Edit `resume/resume.typ`, not the generated PDFs. Keep its font families synchronized with the licensed files in `resume/fonts/`; the build explicitly loads fonts from that directory. After resume changes, run `npm run resume:publish` so the dated PDF in `resume/out/`, its public dated copy, and `static/resume.pdf` stay synchronized. Commit all generated PDF copies when the resume source changes.
 
 ## Validation checklist
 

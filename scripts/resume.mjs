@@ -4,6 +4,7 @@ import { spawnSync } from "node:child_process"
 
 const root = process.cwd()
 const source = join(root, "resume", "resume.typ")
+const fontDirectory = join(root, "resume", "fonts")
 const outputDirectory = join(root, "resume", "out")
 const publicDirectory = join(root, "static")
 const prefix = "Resume_MohitChauhan_"
@@ -23,7 +24,7 @@ const compile = watch => {
 
   const result = spawnSync(
     "typst",
-    [watch ? "watch" : "compile", source, output],
+    [watch ? "watch" : "compile", "--font-path", fontDirectory, source, output],
     {
       stdio: "inherit",
     },
