@@ -68,6 +68,7 @@
   --color-heading-black: #17191c;
   --color-accent: #deddd9;
   --color-code-bg: #f2f1ee;
+  --color-code-block-bg: #f2f1ee;
   --color-code-border: #deddd9;
   --color-code-text: #2d3748;
 }
@@ -195,7 +196,7 @@ pre {
   font-family: var(--font-code);
   font-size: var(--fontSize-0);
   line-height: var(--lineHeight-normal);
-  background-color: var(--color-code-bg);
+  background-color: var(--color-code-block-bg);
   padding: var(--spacing-4);
   border-radius: 0.5rem;
   border: 1px solid var(--color-code-border);
@@ -216,8 +217,14 @@ pre[class*="language-"] {
   text-shadow: none;
 }
 
-pre[class*="language-"] {
+:not(pre) > code[class*="language-"] {
+  color: var(--color-code-text);
   background: var(--color-code-bg);
+  text-shadow: none;
+}
+
+pre[class*="language-"] {
+  background: var(--color-code-block-bg);
 }
 
 /* Lists */
@@ -643,9 +650,10 @@ a:focus {
     --color-heading: #f2f1ed;
     --color-heading-black: #f2f1ed;
     --color-accent: #30343a;
-    --color-code-bg: #22262b;
-    --color-code-border: #30343a;
-    --color-code-text: #e1e4e8;
+    --color-code-bg: #2d333b;
+    --color-code-block-bg: #0d1117;
+    --color-code-border: #3b434c;
+    --color-code-text: #e6edf3;
   }
 
   html {
