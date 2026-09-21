@@ -1,10 +1,4 @@
 /**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
-
-/**
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
@@ -14,10 +8,11 @@ module.exports = {
       name: `Mohit Chauhan`,
       summary: `who lives and works in Vancouver, building (hopefully) useful things.`,
     },
-    description: `My corner of the internet.`,
-    siteUrl: `https://mohitc.com/`,
+    description: `Mohit Chauhan is a software engineer in Vancouver interested in databases, distributed systems, infrastructure, and developer tools.`,
+    siteUrl: `https://mohitc.com`,
     social: {
       github: `mchauhan3`,
+      linkedin: `https://www.linkedin.com/in/mohit-chauhan/`,
     },
     blogTitle: `Blog`,
   },
@@ -43,15 +38,11 @@ module.exports = {
         plugins: [
           {
             resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 630,
-            },
+            options: { maxWidth: 630 },
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
+            options: { wrapperStyle: `margin-bottom: 1.0725rem` },
           },
           `gatsby-remark-prismjs`,
         ],
@@ -59,6 +50,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -76,29 +68,23 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map(node => {
-                return Object.assign({}, node.frontmatter, {
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
+              allMarkdownRemark.nodes.map(node =>
+                Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
                   custom_elements: [{ "content:encoded": node.html }],
-                })
-              })
-            },
+                }),
+              ),
             query: `{
               allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
                 nodes {
                   excerpt
                   html
-                  fields {
-                    slug
-                  }
-                  frontmatter {
-                    title
-                    date
-                  }
+                  fields { slug }
+                  frontmatter { title date }
                 }
               }
             }`,
@@ -115,11 +101,8 @@ module.exports = {
         short_name: `Mohit's Website`,
         start_url: `/`,
         background_color: `#ffffff`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/gatsby-icon.png`,
       },
     },
   ],
