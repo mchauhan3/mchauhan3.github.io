@@ -1,47 +1,89 @@
-/**
- * SEO component that queries for data with
- * Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
- */
-
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Seo = ({ description, title, children }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            social {
-              github
-            }
-          }
+const Seo = ({
+  description,
+  title,
+  pathname = "/",
+  article = false,
+  datePublished,
+  children,
+}) => {
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          siteUrl
+          author { name }
+          social { github linkedin }
         }
       }
-    `
-  )
+    }
+  `)
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const metadata = site.siteMetadata
+  const metaDescription = description || metadata.description
+  const canonicalUrl = new URL(pathname, metadata.siteUrl).toString()
+  const fullTitle = title ? `${title} | ${metadata.title}` : metadata.title
+
+  const structuredData = article
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: title,
+        description: metaDescription,
+        datePublished,
+        url: canonicalUrl,
+        mainEntityOfPage: canonicalUrl,
+        author: {
+          "@type": "Person",
+          name: metadata.author.name,
+          url: metadata.siteUrl,
+        },
+      }
+    : pathname === "/"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: metadata.author.name,
+          url: metadata.siteUrl,
+          jobTitle: "Software Engineer",
+          sameAs: [
+            `https://github.com/${metadata.social.github}`,
+            metadata.social.linkedin,
+          ],
+          knowsAbout: [
+            "Databases",
+            "Distributed Systems",
+            "Infrastructure",
+            "Developer Tools",
+          ],
+        }
+      : null
 
   return (
     <>
-      <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
+      <title>{fullTitle}</title>
       <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={title} />
+      <link rel="canonical" href={canonicalUrl} />
+
+      <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={metaDescription} />
-      <meta property="og:type" content="website" />
-      <meta name="github:card" content="summary" />
-      <meta
-        name="github:creator"
-        content={site.siteMetadata?.social?.github || ``}
-      />
-      <meta name="github:title" content={title} />
-      <meta name="github:description" content={metaDescription} />
+      <meta property="og:type" content={article ? "article" : "website"} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:site_name" content={metadata.title} />
+
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={metaDescription} />
+
+      {structuredData && (
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      )}
       {children}
     </>
   )
