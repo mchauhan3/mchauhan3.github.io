@@ -38,7 +38,6 @@ const IndexPage = () => (
 
 export const Head = () => (
   <Seo
-    title="Software Engineer"
     description="Mohit Chauhan is a software engineer in Vancouver interested in databases, distributed systems, infrastructure, and developer tools."
     pathname="/"
   />
