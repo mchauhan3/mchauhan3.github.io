@@ -7,6 +7,7 @@ const Seo = ({
   pathname = "/",
   article = false,
   datePublished,
+  noindex = false,
   children,
 }) => {
   const { site } = useStaticQuery(graphql`
@@ -16,8 +17,13 @@ const Seo = ({
           title
           description
           siteUrl
-          author { name }
-          social { github linkedin }
+          author {
+            name
+          }
+          social {
+            github
+            linkedin
+          }
         }
       }
     }
@@ -67,12 +73,13 @@ const Seo = ({
     <>
       <title>{fullTitle}</title>
       <meta name="description" content={metaDescription} />
-      <link rel="canonical" href={canonicalUrl} />
+      {!noindex && <link rel="canonical" href={canonicalUrl} />}
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
 
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content={article ? "article" : "website"} />
-      <meta property="og:url" content={canonicalUrl} />
+      {!noindex && <meta property="og:url" content={canonicalUrl} />}
       <meta property="og:site_name" content={metadata.title} />
 
       <meta name="twitter:card" content="summary" />

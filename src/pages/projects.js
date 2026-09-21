@@ -10,7 +10,7 @@ const projects = [
     description:
       "A local-first iOS reading queue for saving articles, reflecting with on-device quizzes and takeaways, and keeping notes.",
     launchUrl: "https://qlog.mohitc.com",
-    inviteUrl: "mailto:mhchauhan3@gmail.com?subject=qLog%20TestFlight%20invite",
+    appStoreUrl: "https://apps.apple.com/us/app/qlog-read-recall/id6812135682",
   },
   {
     name: "VibeCheck",
@@ -57,7 +57,7 @@ const ProjectsPage = () => {
           <a href={featuredProject.launchUrl}>
             view project <span aria-hidden="true">↗</span>
           </a>
-          <a href={featuredProject.inviteUrl}>request a TestFlight invite →</a>
+          <a href={featuredProject.appStoreUrl}>get it on the App Store →</a>
         </div>
       </section>
 
@@ -87,6 +87,7 @@ export const Head = () => (
   <Seo
     title="Projects"
     description="Selected projects, including qLog, an iOS reading queue, VibeCheck, a collaborative music loop builder, and PyPoller, a modular polling toolkit."
+    pathname="/projects/"
   />
 )
 
